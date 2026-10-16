@@ -2,7 +2,7 @@ import Link from "next/link";
 
 interface ButtonProps {
   children: React.ReactNode;
-  variant?: "primary" | "outline" | "ghost";
+  variant?: "primary" | "outline" | "ghost" | "amber";
   href?: string;
   onClick?: () => void;
   type?: "button" | "submit";
@@ -32,6 +32,8 @@ export default function Button({
       "border-2 border-primary text-primary hover:bg-primary hover:text-white",
     ghost:
       "text-primary hover:bg-primary/10",
+    amber:
+      "bg-amber-500 text-white hover:bg-amber-600 shadow-lg shadow-amber-500/30 hover:shadow-amber-600/30",
   };
 
   const baseClasses = `inline-flex items-center justify-center gap-2 font-semibold rounded-xl transition-all duration-300 ${sizeClasses[size]} ${variantClasses[variant]} ${className}`;

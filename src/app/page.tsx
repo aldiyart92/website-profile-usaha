@@ -203,12 +203,21 @@ export default function Home() {
       {/* CTA Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-r from-primary-dark to-primary" />
-        <div className="absolute inset-0 opacity-10">
-          <svg className="w-full h-full" viewBox="0 0 100 100" preserveAspectRatio="none">
-            <circle cx="20" cy="50" r="30" fill="white" />
-            <circle cx="80" cy="30" r="20" fill="white" />
+        {/* Modern Clean Geometric Grid Pattern */}
+        <div className="absolute inset-0 opacity-15">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="cta-modern-grid" width="36" height="36" patternUnits="userSpaceOnUse">
+                <path d="M 36 0 L 0 0 0 36" fill="none" stroke="white" strokeWidth="0.8" opacity="0.6" />
+                <circle cx="36" cy="36" r="1.5" fill="white" opacity="0.8" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#cta-modern-grid)" />
           </svg>
         </div>
+        {/* Subtle ambient light glow */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-primary-light/20 rounded-full blur-3xl pointer-events-none" />
+
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 data-aos="fade-up" className="text-3xl md:text-4xl font-bold text-white mb-6">
             Siap Bergabung dengan Komunitas Kami?
@@ -218,10 +227,19 @@ export default function Home() {
             Bawa ide-ide terbaikmu dan temukan inspirasi baru.
           </p>
           <div data-aos="fade-up" data-aos-delay="200" className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/kontak" variant="primary" size="lg" className="bg-white text-primary hover:bg-accent hover:text-primary-dark shadow-xl">
+            <Button
+              href="/kontak"
+              variant="amber"
+              size="lg"
+            >
               Kunjungi Kami
             </Button>
-            <Button href="/kolaborasi" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
+            <Button
+              href="/kolaborasi"
+              variant="outline"
+              size="lg"
+              className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+            >
               Ajukan Kolaborasi
             </Button>
           </div>
