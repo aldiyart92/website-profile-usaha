@@ -4,6 +4,7 @@ import Button from "@/components/Button";
 import SectionHeading from "@/components/SectionHeading";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import FeaturedArticles from "@/components/FeaturedArticles";
+import GalleryGrid from "@/components/GalleryGrid";
 import { galleryImages, testimonials, articles } from "@/data/content";
 
 export default function Home() {
@@ -171,24 +172,7 @@ export default function Home() {
             title="Galeri"
             subtitle="Intip suasana dan kegiatan di Workspace"
           />
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-            {galleryImages.slice(0, 6).map((img, i) => (
-              <div
-                key={i}
-                data-aos="zoom-in"
-                data-aos-delay={i * 80}
-                className="relative aspect-[4/3] rounded-2xl overflow-hidden group"
-              >
-                <Image
-                  src={img.src}
-                  alt={img.alt}
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover:scale-110"
-                />
-                <div className="absolute inset-0 bg-primary-dark/0 group-hover:bg-primary-dark/20 transition-colors duration-300" />
-              </div>
-            ))}
-          </div>
+          <GalleryGrid images={galleryImages.slice(0, 6)} />
           <div className="text-center mt-10">
             <Button href="/galeri" variant="outline">
               Lihat Semua
