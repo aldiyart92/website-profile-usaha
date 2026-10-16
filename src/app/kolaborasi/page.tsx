@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
+import { KolaborasiSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
 
@@ -79,8 +80,10 @@ export default function KolaborasiPage() {
   return (
     <>
       <HeroSection
+        badge={{ icon: "🤝", text: "Kemitraan & Ekosistem Terbuka" }}
         title="Peluang Kolaborasi"
         subtitle="Mari bertumbuh bersama. Kami percaya dampak terbesar tercipta dari kolaborasi yang erat dan bermakna."
+        silhouette={<KolaborasiSilhouette />}
       />
 
       {/* Collaboration Types */}

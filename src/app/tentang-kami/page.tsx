@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
+import { TentangKamiSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
 import { teamMembers } from "@/data/content";
@@ -53,8 +54,10 @@ export default function TentangKamiPage() {
   return (
     <>
       <HeroSection
+        badge={{ icon: "🌱", text: "Visi, Misi & Dedikasi Kami" }}
         title="Tentang Kami"
         subtitle="Membangun ekosistem terpadu di mana ide segar, secangkir kopi beraroma, dan jejaring kolaboratif bertemu."
+        silhouette={<TentangKamiSilhouette />}
       />
 
       {/* Story Section */}

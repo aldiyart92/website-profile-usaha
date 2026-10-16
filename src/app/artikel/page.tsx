@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
+import { ArtikelSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import ArticleCard from "@/components/ArticleCard";
 import { articles } from "@/data/content";
@@ -13,8 +14,10 @@ export default function ArtikelPage() {
   return (
     <>
       <HeroSection
+        badge={{ icon: "📰", text: "Wawasan, Berita & Tips Praktis" }}
         title="Artikel & Kabar Terbaru"
         subtitle="Inspirasi, kiat praktis produktivitas, serta ulasan seputar tren teknologi dan industri kreatif."
+        silhouette={<ArtikelSilhouette />}
       />
 
       <section className="section-padding">

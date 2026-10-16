@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import HeroSection from "@/components/HeroSection";
+import { KelasProgrammeSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
 import TestimonialCard from "@/components/TestimonialCard";
@@ -15,8 +16,10 @@ export default function KelasProgrammePage() {
   return (
     <>
       <HeroSection
+        badge={{ icon: "🎓", text: "Program Pelatihan & Workshop Terpadu" }}
         title="Kelas & Programme"
         subtitle="Tingkatkan keahlian digital, bisnis, dan kreativitas Anda melalui program terarah bersama mentor praktisi."
+        silhouette={<KelasProgrammeSilhouette />}
       />
 
       {/* Program Categories / Stats */}

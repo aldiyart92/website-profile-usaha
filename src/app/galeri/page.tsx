@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
+import { GaleriSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import GalleryGrid from "@/components/GalleryGrid";
 import { galleryImages } from "@/data/content";
@@ -13,8 +14,10 @@ export default function GaleriPage() {
   return (
     <>
       <HeroSection
+        badge={{ icon: "📸", text: "Dokumentasi & Sudut Visual" }}
         title="Galeri Workspace"
         subtitle="Lihat sekilas kenyamanan ruang kerja, atmosfer cafe yang asri, serta keseruan berbagai kegiatan komunitas kami."
+        silhouette={<GaleriSilhouette />}
       />
 
       <section className="section-padding">

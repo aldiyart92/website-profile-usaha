@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import HeroSection from "@/components/HeroSection";
+import { KontakSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
 
@@ -52,8 +53,10 @@ export default function KontakPage() {
   return (
     <>
       <HeroSection
+        badge={{ icon: "📍", text: "Terhubung Bersama Tim Workspace" }}
         title="Hubungi Kami"
         subtitle="Ada pertanyaan seputar paket membership, pemesanan ruang rapat, atau sekadar ingin menyapa? Kami siap menyambut Anda."
+        silhouette={<KontakSilhouette />}
       />
 
       <section className="section-padding">
