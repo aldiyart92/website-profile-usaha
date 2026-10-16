@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import Button from "@/components/Button";
 import SectionHeading from "@/components/SectionHeading";
 import TestimonialSlider from "@/components/TestimonialSlider";
-import { galleryImages, testimonials } from "@/data/content";
+import FeaturedArticles from "@/components/FeaturedArticles";
+import { galleryImages, testimonials, articles } from "@/data/content";
 
 export default function Home() {
   return (
@@ -124,8 +126,35 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Blog / News Section */}
+      <section className="section-padding bg-background border-t border-gray-100">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+            <div>
+              <span className="text-primary font-semibold text-xs uppercase tracking-wider block mb-2">
+                Wawasan & Kabar Komunitas
+              </span>
+              <h2 className="text-3xl md:text-4xl font-bold text-text-primary">
+                Artikel & Berita Terbaru
+              </h2>
+            </div>
+            <Link
+              href="/artikel"
+              className="inline-flex items-center gap-2 text-sm font-semibold text-primary hover:text-primary-light transition-colors group"
+            >
+              Lihat Semua Artikel
+              <svg className="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
+          <FeaturedArticles articles={articles} />
+        </div>
+      </section>
+
       {/* Testimonials */}
-      <section className="section-padding">
+      <section className="section-padding bg-surface">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Apa Kata Mereka"
