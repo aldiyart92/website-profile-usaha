@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import HeroSection from "@/components/HeroSection";
 import SectionHeading from "@/components/SectionHeading";
 import Button from "@/components/Button";
 
@@ -144,10 +143,149 @@ const facilities = [
 export default function CafeCoworkingPage() {
   return (
     <>
-      <HeroSection
-        title="Cafe & Coworking Space"
-        subtitle="Dua dunia harmonis: kenikmatan secangkir kopi berkualitas dan ruang kerja terpadu untuk produktivitas maksimal."
-      />
+      {/* Minimalist Hero Section with Cafe & Coworking Silhouette */}
+      <section className="relative pt-32 pb-16 md:pt-40 md:pb-24 bg-gradient-to-br from-primary-dark via-[#214F3B] to-primary overflow-hidden text-white border-b border-primary-light/10">
+        {/* Subtle dot matrix pattern */}
+        <div className="absolute inset-0 opacity-10 pointer-events-none">
+          <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <pattern id="cafe-hero-dots" width="28" height="28" patternUnits="userSpaceOnUse">
+                <circle cx="2" cy="2" r="1.2" fill="white" />
+              </pattern>
+            </defs>
+            <rect width="100%" height="100%" fill="url(#cafe-hero-dots)" />
+          </svg>
+        </div>
+
+        {/* Ambient soft glow */}
+        <div className="absolute top-1/3 right-1/4 w-[450px] h-[300px] bg-primary-light/15 rounded-full blur-3xl pointer-events-none" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            {/* Left: Clean Minimalist Text */}
+            <div className="lg:col-span-7" data-aos="fade-right">
+              <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/15 text-xs font-semibold text-accent mb-6 shadow-sm">
+                <span>☕</span>
+                <span>Ruang Kerja Terpadu & Kafe Spesialti</span>
+              </div>
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
+                Cafe & Coworking Space
+              </h1>
+              <p className="text-base sm:text-lg md:text-xl text-text-on-dark/85 max-w-xl leading-relaxed mb-8">
+                Dua dunia harmonis: kenikmatan secangkir kopi berkualitas dan ruang kerja terpadu untuk produktivitas maksimal.
+              </p>
+              <div className="flex flex-wrap gap-4">
+                <Button
+                  href="#coworking-plans"
+                  variant="primary"
+                  className="bg-white text-primary hover:bg-accent hover:text-primary-dark shadow-lg"
+                >
+                  Lihat Paket Coworking
+                </Button>
+                <Button
+                  href="#cafe-menu"
+                  variant="outline"
+                  className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+                >
+                  Menu Cafe
+                </Button>
+              </div>
+            </div>
+
+            {/* Right: Modern Vector Silhouette of Cafe & Coworking Space */}
+            <div className="lg:col-span-5 relative hidden lg:flex items-center justify-center" data-aos="fade-left">
+              <div className="relative w-full max-w-md aspect-[4/3] rounded-3xl p-6 bg-white/5 border border-white/10 backdrop-blur-sm flex items-end justify-center shadow-2xl overflow-hidden group">
+                {/* Silhouette SVG Scene */}
+                <svg
+                  viewBox="0 0 500 360"
+                  className="w-full h-full text-accent/80 transition-transform duration-700 group-hover:scale-102"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  {/* Pendant hanging lamps */}
+                  <line x1="80" y1="0" x2="80" y2="80" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
+                  <path d="M 65 80 L 95 80 L 90 95 L 70 95 Z" fill="currentColor" opacity="0.6" />
+                  <circle cx="80" cy="98" r="4" fill="#F59E0B" opacity="0.9" />
+
+                  <line x1="250" y1="0" x2="250" y2="60" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
+                  <path d="M 235 60 L 265 60 L 260 75 L 240 75 Z" fill="currentColor" opacity="0.6" />
+                  <circle cx="250" cy="78" r="4" fill="#F59E0B" opacity="0.9" />
+
+                  <line x1="420" y1="0" x2="420" y2="85" stroke="currentColor" strokeWidth="1.5" opacity="0.4" />
+                  <path d="M 405 85 L 435 85 L 430 100 L 410 100 Z" fill="currentColor" opacity="0.6" />
+                  <circle cx="420" cy="103" r="4" fill="#F59E0B" opacity="0.9" />
+
+                  {/* Windows / Minimalist Wall Shelves */}
+                  <rect x="180" y="95" width="140" height="4" rx="2" fill="currentColor" opacity="0.3" />
+                  <rect x="195" y="78" width="12" height="17" rx="1" fill="currentColor" opacity="0.5" />
+                  <rect x="212" y="75" width="10" height="20" rx="1" fill="currentColor" opacity="0.5" />
+                  <rect x="280" y="80" width="18" height="15" rx="3" fill="currentColor" opacity="0.4" />
+
+                  {/* Left Side: Potted Plant (Monstera / Biophilic aesthetic) */}
+                  <path d="M 30 310 L 45 350 L 15 350 Z" fill="currentColor" opacity="0.7" />
+                  <ellipse cx="30" cy="270" rx="20" ry="35" fill="currentColor" opacity="0.5" transform="rotate(-20 30 270)" />
+                  <ellipse cx="45" cy="250" rx="18" ry="32" fill="currentColor" opacity="0.6" transform="rotate(15 45 250)" />
+                  <ellipse cx="18" cy="245" rx="15" ry="28" fill="currentColor" opacity="0.5" transform="rotate(-35 18 245)" />
+
+                  {/* Center: Long Coworking Desk */}
+                  <rect x="70" y="240" width="360" height="10" rx="3" fill="currentColor" opacity="0.9" />
+                  {/* Desk Legs */}
+                  <rect x="90" y="250" width="6" height="100" fill="currentColor" opacity="0.7" />
+                  <rect x="400" y="250" width="6" height="100" fill="currentColor" opacity="0.7" />
+                  <rect x="247" y="250" width="6" height="100" fill="currentColor" opacity="0.5" />
+
+                  {/* Coworker 1: Person working on Laptop (Left) */}
+                  {/* Head */}
+                  <circle cx="150" cy="170" r="15" fill="currentColor" opacity="0.85" />
+                  {/* Body / Torso leaning slightly forward */}
+                  <path d="M 130 240 L 140 190 Q 150 185 160 190 L 175 240 Z" fill="currentColor" opacity="0.85" />
+                  {/* Ergonomic Chair */}
+                  <rect x="115" y="200" width="6" height="50" rx="2" fill="currentColor" opacity="0.6" />
+                  <rect x="110" y="248" width="40" height="6" rx="2" fill="currentColor" opacity="0.6" />
+                  <line x1="125" y1="254" x2="125" y2="350" stroke="currentColor" strokeWidth="5" opacity="0.6" />
+                  {/* Laptop open */}
+                  <path d="M 180 238 L 195 210 L 210 210 L 200 238 Z" fill="currentColor" opacity="0.95" />
+                  <rect x="175" y="238" width="35" height="3" rx="1.5" fill="currentColor" opacity="0.95" />
+                  {/* Glowing laptop screen */}
+                  <polygon points="184,235 197,213 207,213 197,235" fill="white" opacity="0.9" />
+
+                  {/* Cafe Mug with subtle steam */}
+                  <rect x="220" y="230" width="12" height="10" rx="2" fill="currentColor" opacity="0.8" />
+                  <path d="M 232 232 Q 237 235 232 238" stroke="currentColor" strokeWidth="1.5" fill="none" opacity="0.8" />
+                  <path d="M 223 227 Q 225 223 224 220" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
+                  <path d="M 228 227 Q 230 222 229 218" stroke="white" strokeWidth="1" strokeLinecap="round" opacity="0.6" />
+
+                  {/* Coworker 2: Collaborator / Barista Coffee Corner (Right) */}
+                  {/* Head */}
+                  <circle cx="340" cy="165" r="15" fill="currentColor" opacity="0.85" />
+                  {/* Torso */}
+                  <path d="M 320 240 L 330 185 Q 340 180 350 185 L 365 240 Z" fill="currentColor" opacity="0.85" />
+                  {/* Chair */}
+                  <rect x="365" y="195" width="6" height="50" rx="2" fill="currentColor" opacity="0.6" />
+                  <rect x="335" y="248" width="40" height="6" rx="2" fill="currentColor" opacity="0.6" />
+                  <line x1="355" y1="254" x2="355" y2="350" stroke="currentColor" strokeWidth="5" opacity="0.6" />
+                  {/* Second laptop */}
+                  <path d="M 290 238 L 305 212 L 318 212 L 308 238 Z" fill="currentColor" opacity="0.95" />
+                  <rect x="285" y="238" width="32" height="3" rx="1.5" fill="currentColor" opacity="0.95" />
+                  <polygon points="293,235 306,215 315,215 304,235" fill="white" opacity="0.9" />
+
+                  {/* Right small plant on desk */}
+                  <ellipse cx="380" cy="232" rx="6" ry="9" fill="currentColor" opacity="0.7" />
+                  <rect x="377" y="234" width="6" height="6" rx="1" fill="currentColor" opacity="0.7" />
+
+                  {/* Floor Line */}
+                  <line x1="0" y1="350" x2="500" y2="350" stroke="currentColor" strokeWidth="2" opacity="0.3" />
+                </svg>
+
+                {/* Subtle caption badge inside artwork */}
+                <span className="absolute bottom-4 right-4 text-[10px] uppercase tracking-wider font-semibold text-accent/70 bg-black/30 backdrop-blur-sm px-2.5 py-1 rounded-full border border-white/10">
+                  Workspace Atmosphere
+                </span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Intro Section */}
       <section className="section-padding">

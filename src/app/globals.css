@@ -63,19 +63,9 @@ html {
 .page-hero {
   position: relative;
   padding-top: 8rem;
-  padding-bottom: 4rem;
+  padding-bottom: 5rem;
   background: linear-gradient(135deg, var(--color-primary-dark) 0%, var(--color-primary) 100%);
   color: var(--color-text-on-dark);
-}
-
-.page-hero::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  height: 80px;
-  background: linear-gradient(to top right, var(--color-background) 50%, transparent 50%);
 }
 
 /* Card hover effect */
