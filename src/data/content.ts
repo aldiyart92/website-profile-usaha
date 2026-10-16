@@ -248,4 +248,23 @@ export const testimonials = [
     quote: "Workshop dan kelas di Workspace sangat berkualitas. Saya belajar banyak hal baru dan mendapat banyak koneksi.",
     image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
   },
+  {
+    name: "Fajar Ramadhan",
+    role: "Senior Software Engineer",
+    quote: "Koneksi internet fiber optic-nya sangat stabil untuk deployment & video call seharian. Private meeting booth-nya penyelamat saat sprint review!",
+    image: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop&crop=face",
+  },
+  {
+    name: "Nadya Putri",
+    role: "Managing Director, Creative Labs",
+    quote: "Kami rutin mengadakan sesi workshop mingguan di Workspace. Timnya sangat responsif dan fasilitas audionya sangat profesional.",
+    image: "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=200&h=200&fit=crop&crop=face",
+  },
+  {
+    name: "Reza Pratama",
+    role: "Remote Business Consultant",
+    quote: "Kombinasi cafe dengan kopi artisan dan coworking space yang tenang ini adalah yang terbaik di kota. Klien saya selalu terkesan saat meeting di sini.",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
+  },
 ];
+
