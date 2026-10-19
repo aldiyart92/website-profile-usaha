@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Button from "@/components/Button";
 import SectionHeading from "@/components/SectionHeading";
+import HeroSlider from "@/components/HeroSlider";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import FeaturedArticles from "@/components/FeaturedArticles";
 import GalleryGrid from "@/components/GalleryGrid";
@@ -10,56 +11,8 @@ import { galleryImages, testimonials, articles } from "@/data/content";
 export default function Home() {
   return (
     <>
-      {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden">
-        {/* Background */}
-        <div className="absolute inset-0">
-          <Image
-            src="https://images.unsplash.com/photo-1497366216548-37526070297c?w=1920&h=1080&fit=crop"
-            alt="Workspace hero"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-gradient-to-b from-primary-dark/70 via-primary-dark/50 to-primary-dark/80" />
-        </div>
-
-        {/* Content */}
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <div data-aos="fade-up">
-            <span className="inline-block px-4 py-2 rounded-full bg-white/10 backdrop-blur text-sm font-medium mb-6 border border-white/20">
-              ☕ Cafe & Coworking Space
-            </span>
-          </div>
-          <h1 data-aos="fade-up" data-aos-delay="100" className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6">
-            Tempat Kerja yang
-            <br />
-            <span className="text-accent">Menginspirasi</span>
-          </h1>
-          <p data-aos="fade-up" data-aos-delay="200" className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed">
-            Nikmati suasana cafe yang nyaman sambil bekerja di coworking space modern.
-            Bergabung dengan komunitas kreatif dan produktif.
-          </p>
-          <div data-aos="fade-up" data-aos-delay="300" className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button href="/cafe-coworking" variant="primary" size="lg">
-              Jelajahi Space
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Button>
-            <Button href="/kontak" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10 hover:text-white">
-              Hubungi Kami
-            </Button>
-          </div>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-          <svg className="w-6 h-6 text-white/60" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
-          </svg>
-        </div>
-      </section>
+      {/* Hero Section with Fading Slider */}
+      <HeroSlider />
 
       {/* Highlights */}
       <section className="section-padding">
