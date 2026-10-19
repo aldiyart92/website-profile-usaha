@@ -41,14 +41,20 @@ export default function Navbar() {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition-colors ${
-              scrolled ? "bg-primary text-white" : "bg-white/20 text-white backdrop-blur"
-            } ${pathname === "/" && !scrolled ? "bg-white/20 text-white" : ""} ${scrolled ? "bg-primary text-white" : pathname !== "/" ? "bg-primary text-white" : ""}`}>
+            <div
+              className={`w-10 h-10 rounded-xl flex items-center justify-center font-bold text-lg transition-colors ${
+                scrolled ? "bg-primary text-white" : "bg-white/20 text-white backdrop-blur"
+              }`}
+            >
               W
             </div>
-            <span className={`font-semibold text-xl transition-colors ${
-              scrolled || pathname !== "/" ? "text-primary-dark" : "text-white"
-            }`}>
+            <span
+              className={`font-semibold text-xl transition-colors ${
+                scrolled
+                  ? "text-primary group-hover:text-primary"
+                  : "text-white group-hover:text-white/90"
+              }`}
+            >
               Workspace
             </span>
           </Link>
@@ -61,12 +67,12 @@ export default function Navbar() {
                 href={link.href}
                 className={`px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                   pathname === link.href
-                    ? scrolled || pathname !== "/"
+                    ? scrolled
                       ? "text-primary bg-primary/10"
-                      : "text-white bg-white/20"
-                    : scrolled || pathname !== "/"
+                      : "text-white bg-white/20 font-semibold"
+                    : scrolled
                     ? "text-text-secondary hover:text-primary hover:bg-primary/5"
-                    : "text-white/80 hover:text-white hover:bg-white/10"
+                    : "text-white/85 hover:text-white hover:bg-white/10"
                 }`}
               >
                 {link.label}
@@ -78,7 +84,7 @@ export default function Navbar() {
           <button
             onClick={() => setIsOpen(!isOpen)}
             className={`lg:hidden p-2 rounded-lg transition-colors ${
-              scrolled || pathname !== "/"
+              scrolled
                 ? "text-text-primary hover:bg-gray-100"
                 : "text-white hover:bg-white/10"
             }`}

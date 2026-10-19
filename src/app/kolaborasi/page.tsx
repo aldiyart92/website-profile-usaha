@@ -84,10 +84,23 @@ export default function KolaborasiPage() {
         title="Peluang Kolaborasi"
         subtitle="Mari bertumbuh bersama. Kami percaya dampak terbesar tercipta dari kolaborasi yang erat dan bermakna."
         silhouette={<KolaborasiSilhouette />}
-      />
+      >
+        <div className="flex flex-wrap gap-4">
+          <Button href="#form-kolaborasi" variant="amber">
+            Ajukan Kolaborasi
+          </Button>
+          <Button
+            href="#bentuk-kemitraan"
+            variant="outline"
+            className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+          >
+            Bentuk Kemitraan
+          </Button>
+        </div>
+      </HeroSection>
 
       {/* Collaboration Types */}
-      <section className="section-padding">
+      <section id="bentuk-kemitraan" className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Bentuk Kemitraan yang Kami Tawarkan"

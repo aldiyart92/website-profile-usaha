@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import { KontakSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import ContactForm from "@/components/ContactForm";
+import Button from "@/components/Button";
 
 export const metadata: Metadata = {
   title: "Kontak Kami",
@@ -57,7 +58,20 @@ export default function KontakPage() {
         title="Hubungi Kami"
         subtitle="Ada pertanyaan seputar paket membership, pemesanan ruang rapat, atau sekadar ingin menyapa? Kami siap menyambut Anda."
         silhouette={<KontakSilhouette />}
-      />
+      >
+        <div className="flex flex-wrap gap-4">
+          <Button href="#form-pesan" variant="amber">
+            Kirim Pesan Langsung
+          </Button>
+          <Button
+            href="https://wa.me/6281234567890"
+            variant="outline"
+            className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+          >
+            Chat WhatsApp
+          </Button>
+        </div>
+      </HeroSection>
 
       <section className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -89,7 +103,7 @@ export default function KontakPage() {
           {/* Form and Map Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Contact Form Section */}
-            <div data-aos="fade-right" className="bg-surface rounded-3xl p-8 sm:p-10 border border-gray-100 shadow-sm">
+            <div id="form-pesan" data-aos="fade-right" className="bg-surface rounded-3xl p-8 sm:p-10 border border-gray-100 shadow-sm">
               <h3 className="text-2xl font-bold text-text-primary mb-2">Kirimkan Pesan</h3>
               <p className="text-text-secondary text-sm mb-8">
                 Isi formulir di bawah ini dan kami akan membalas ke email Anda sesegera mungkin.

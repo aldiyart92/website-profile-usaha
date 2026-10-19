@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import { GaleriSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import GalleryGrid from "@/components/GalleryGrid";
+import Button from "@/components/Button";
 import { galleryImages } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -18,9 +19,15 @@ export default function GaleriPage() {
         title="Galeri Workspace"
         subtitle="Lihat sekilas kenyamanan ruang kerja, atmosfer cafe yang asri, serta keseruan berbagai kegiatan komunitas kami."
         silhouette={<GaleriSilhouette />}
-      />
+      >
+        <div className="flex flex-wrap gap-4">
+          <Button href="#galeri-grid" variant="amber">
+            Eksplorasi Galeri
+          </Button>
+        </div>
+      </HeroSection>
 
-      <section className="section-padding">
+      <section id="galeri-grid" className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Dokumentasi Visual"

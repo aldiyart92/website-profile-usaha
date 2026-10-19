@@ -3,6 +3,7 @@ import HeroSection from "@/components/HeroSection";
 import { ArtikelSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import ArticleCard from "@/components/ArticleCard";
+import Button from "@/components/Button";
 import { articles } from "@/data/content";
 
 export const metadata: Metadata = {
@@ -18,9 +19,15 @@ export default function ArtikelPage() {
         title="Artikel & Kabar Terbaru"
         subtitle="Inspirasi, kiat praktis produktivitas, serta ulasan seputar tren teknologi dan industri kreatif."
         silhouette={<ArtikelSilhouette />}
-      />
+      >
+        <div className="flex flex-wrap gap-4">
+          <Button href="#daftar-artikel" variant="amber">
+            Baca Artikel Terbaru
+          </Button>
+        </div>
+      </HeroSection>
 
-      <section className="section-padding">
+      <section id="daftar-artikel" className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionHeading
             title="Wawasan Terpilih"

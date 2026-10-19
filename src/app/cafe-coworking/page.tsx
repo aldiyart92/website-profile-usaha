@@ -154,8 +154,7 @@ export default function CafeCoworkingPage() {
         <div className="flex flex-wrap gap-4">
           <Button
             href="#coworking-plans"
-            variant="primary"
-            className="bg-white text-primary hover:bg-accent hover:text-primary-dark shadow-lg"
+            variant="amber"
           >
             Lihat Paket Coworking
           </Button>

@@ -20,10 +20,23 @@ export default function KelasProgrammePage() {
         title="Kelas & Programme"
         subtitle="Tingkatkan keahlian digital, bisnis, dan kreativitas Anda melalui program terarah bersama mentor praktisi."
         silhouette={<KelasProgrammeSilhouette />}
-      />
+      >
+        <div className="flex flex-wrap gap-4">
+          <Button href="#daftar-program" variant="amber">
+            Lihat Program Mendatang
+          </Button>
+          <Button
+            href="/kontak"
+            variant="outline"
+            className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+          >
+            Konsultasi Program
+          </Button>
+        </div>
+      </HeroSection>
 
       {/* Program Categories / Stats */}
-      <section className="section-padding">
+      <section id="daftar-program" className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center mb-16">
             <div data-aos="fade-up" className="p-6 bg-surface rounded-2xl border border-gray-100">

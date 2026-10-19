@@ -58,10 +58,23 @@ export default function TentangKamiPage() {
         title="Tentang Kami"
         subtitle="Membangun ekosistem terpadu di mana ide segar, secangkir kopi beraroma, dan jejaring kolaboratif bertemu."
         silhouette={<TentangKamiSilhouette />}
-      />
+      >
+        <div className="flex flex-wrap gap-4">
+          <Button href="/kontak" variant="amber">
+            Kunjungi Workspace
+          </Button>
+          <Button
+            href="#cerita-kami"
+            variant="outline"
+            className="border-white/30 text-white hover:bg-white/10 hover:text-white"
+          >
+            Baca Kisah Kami
+          </Button>
+        </div>
+      </HeroSection>
 
       {/* Story Section */}
-      <section className="section-padding">
+      <section id="cerita-kami" className="section-padding">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div data-aos="fade-right">
