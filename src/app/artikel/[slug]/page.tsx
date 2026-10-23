@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { articles } from "@/data/content";
 import Button from "@/components/Button";
+import HeroSection from "@/components/HeroSection";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -39,50 +40,62 @@ export default async function ArticleDetailPage({ params }: Props) {
     .slice(0, 2);
 
   return (
-    <article className="pt-28 pb-20">
-      {/* Header Container */}
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <Link
-          href="/artikel"
-          className="inline-flex items-center gap-2 text-sm text-text-secondary hover:text-primary transition-colors mb-6 font-medium"
-        >
-          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-          </svg>
-          Kembali ke Daftar Artikel
-        </Link>
-
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-text-primary leading-tight mb-6">
-          {article.title}
-        </h1>
-
-        <div className="flex items-center gap-4 text-sm text-text-secondary mb-8 border-b border-gray-100 pb-6">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-full bg-primary/10 text-primary flex items-center justify-center font-bold text-xs">
+    <>
+      <HeroSection
+        backLink={{
+          href: "/artikel",
+          label: "Kembali ke Daftar Artikel",
+        }}
+        badge={{
+          icon: "📰",
+          text: "Artikel & Wawasan",
+        }}
+        title={article.title}
+        maxWidth="max-w-4xl"
+        titleClassName="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-6 leading-tight"
+      >
+        <div className="flex flex-wrap items-center gap-4 text-sm text-text-on-dark/90 pt-4 border-t border-white/15">
+          <div className="flex items-center gap-2.5">
+            <div className="w-9 h-9 rounded-full bg-accent/20 border border-accent/30 text-accent flex items-center justify-center font-bold text-sm">
               {article.author.charAt(0)}
             </div>
-            <span className="font-medium text-text-primary">{article.author}</span>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-on-dark/60 block">Penulis</span>
+              <span className="font-semibold text-white">{article.author}</span>
+            </div>
           </div>
-          <span>•</span>
-          <time dateTime={article.date}>
-            {new Intl.DateTimeFormat("id-ID", {
-              day: "numeric",
-              month: "long",
-              year: "numeric",
-            }).format(new Date(article.date))}
-          </time>
+          <span className="text-white/30 hidden sm:inline">•</span>
+          <div className="flex items-center gap-2 text-text-on-dark/85">
+            <svg className="w-4 h-4 text-accent shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            <div>
+              <span className="text-[11px] uppercase tracking-wider text-text-on-dark/60 block sm:hidden">Diterbitkan</span>
+              <time dateTime={article.date} className="font-medium">
+                {new Intl.DateTimeFormat("id-ID", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                }).format(new Date(article.date))}
+              </time>
+            </div>
+          </div>
         </div>
+      </HeroSection>
 
-        {/* Featured Image */}
-        <div className="relative aspect-[16/9] rounded-3xl overflow-hidden mb-12 shadow-lg">
-          <Image
-            src={article.thumbnail}
-            alt={article.title}
-            fill
-            className="object-cover"
-            priority
-          />
-        </div>
+      <article className="py-12 md:py-16">
+        {/* Header Container */}
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Featured Image */}
+          <div className="relative aspect-[16/9] rounded-3xl overflow-hidden mb-12 shadow-xl border border-gray-100" data-aos="fade-up">
+            <Image
+              src={article.thumbnail}
+              alt={article.title}
+              fill
+              className="object-cover"
+              priority
+            />
+          </div>
 
         {/* Content Body */}
         <div className="prose prose-lg max-w-none text-text-secondary leading-relaxed space-y-6">
@@ -136,7 +149,7 @@ export default async function ArticleDetailPage({ params }: Props) {
             <Button href="/artikel" variant="outline" size="sm">
               Semua Artikel
             </Button>
-            <Button href="/kontak" variant="primary" size="sm">
+            <Button href="/kontak" variant="amber" size="sm">
               Kunjungi Workspace
             </Button>
           </div>
@@ -169,5 +182,6 @@ export default async function ArticleDetailPage({ params }: Props) {
         )}
       </div>
     </article>
-  );
+  </>
+);
 }
