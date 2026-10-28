@@ -4,14 +4,16 @@ import { ArtikelSilhouette } from "@/components/Silhouettes";
 import SectionHeading from "@/components/SectionHeading";
 import ArticleCard from "@/components/ArticleCard";
 import Button from "@/components/Button";
-import { articles } from "@/data/content";
+import { getBlogArticles } from "@/services/articleService";
 
 export const metadata: Metadata = {
   title: "Artikel & Wawasan",
   description: "Kumpulan artikel, tips produktivitas, kabar terkini, dan panduan gaya hidup bekerja modern di Workspace.",
 };
 
-export default function ArtikelPage() {
+export default async function ArtikelPage() {
+  const articles = await getBlogArticles();
+
   return (
     <>
       <HeroSection
@@ -34,13 +36,19 @@ export default function ArtikelPage() {
             subtitle="Baca insight terbaru dari tim dan kontributor komunitas Workspace"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {articles.map((article, idx) => (
-              <div key={article.slug} data-aos="fade-up" data-aos-delay={idx * 100}>
-                <ArticleCard article={article} />
-              </div>
-            ))}
-          </div>
+          {articles.length === 0 ? (
+            <div className="rounded-3xl border border-dashed border-gray-200 bg-surface p-12 text-center text-text-secondary">
+              Belum ada artikel yang dipublikasikan.
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {articles.map((article, idx) => (
+                <div key={article.slug} data-aos="fade-up" data-aos-delay={idx * 100}>
+                  <ArticleCard article={article} />
+                </div>
+              ))}
+            </div>
+          )}
         </div>
       </section>
     </>

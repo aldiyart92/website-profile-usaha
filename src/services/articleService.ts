@@ -1,4 +1,4 @@
-import { Article, articles as staticArticles } from "@/data/content";
+import { Article } from "@/data/content";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
 
@@ -73,13 +73,12 @@ export async function getBlogArticles(): Promise<Article[]> {
 }
 
 /**
- * Get article detail by slug, checking API first, then fallback to static content.
+ * Get article detail by slug from the API. Returns null when not found.
  */
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
+  "use cache";
   try {
-    const res = await fetch(`${API_BASE_URL}/articles/${slug}`, {
-      next: { revalidate: 60 },
-    });
+    const res = await fetch(`${API_BASE_URL}/articles/${encodeURIComponent(slug)}`);
 
     if (res.ok) {
       const json = await res.json();
@@ -91,7 +90,5 @@ export async function getArticleBySlug(slug: string): Promise<Article | null> {
     console.warn(`[articleService] Failed to fetch article "${slug}" from API:`, error);
   }
 
-  // Fallback to static articles
-  const found = staticArticles.find((a) => a.slug === slug);
-  return found || null;
+  return null;
 }
