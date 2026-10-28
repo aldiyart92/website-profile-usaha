@@ -6,9 +6,12 @@ import HeroSlider from "@/components/HeroSlider";
 import TestimonialSlider from "@/components/TestimonialSlider";
 import FeaturedArticles from "@/components/FeaturedArticles";
 import GalleryGrid from "@/components/GalleryGrid";
-import { galleryImages, testimonials, articles } from "@/data/content";
+import { galleryImages, testimonials } from "@/data/content";
+import { getBlogArticles } from "@/services/articleService";
 
-export default function Home() {
+export default async function Home() {
+  const articles = await getBlogArticles();
+
   return (
     <>
       {/* Hero Section with Fading Slider */}

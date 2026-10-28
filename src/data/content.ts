@@ -6,6 +6,7 @@ export interface Article {
   thumbnail: string;
   content: string;
   author: string;
+  category?: string;
 }
 
 export const articles: Article[] = [

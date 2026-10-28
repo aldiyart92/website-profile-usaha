@@ -9,11 +9,11 @@ interface FeaturedArticlesProps {
   articles: Article[];
 }
 
-export default function FeaturedArticles({ articles }: FeaturedArticlesProps) {
+export default function FeaturedArticles({ articles = [] }: FeaturedArticlesProps) {
   // Use first 3 articles for headline slider
   const headlineArticles = articles.slice(0, 3);
-  // Use remaining 4 articles for side list
-  const listArticles = articles.slice(2, 6);
+  // Use remaining 4 articles for side list, or all articles if few
+  const listArticles = articles.length > 3 ? articles.slice(2, 6) : articles;
 
   const [activeSlide, setActiveSlide] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
@@ -73,7 +73,7 @@ export default function FeaturedArticles({ articles }: FeaturedArticlesProps) {
             {/* Top Tag & Slide Indicators */}
             <div className="flex items-center justify-between">
               <span className="bg-primary-light text-primary-dark text-xs font-bold uppercase tracking-wider px-3.5 py-1.5 rounded-full shadow-md">
-                🔥 Headline Berita {activeSlide + 1}/3
+                🔥 Headline Berita {activeSlide + 1}/{headlineArticles.length}
               </span>
 
               {/* Slider Controls */}

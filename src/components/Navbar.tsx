@@ -6,10 +6,10 @@ import { useState, useEffect } from "react";
 
 const navLinks = [
   { label: "Beranda", href: "/" },
-  { label: "Cafe & Coworking", href: "/cafe-coworking" },
-  { label: "Kelas & Programme", href: "/kelas-programme" },
-  { label: "Kolaborasi", href: "/kolaborasi" },
   { label: "Tentang Kami", href: "/tentang-kami" },
+  { label: "Cafe & Coworking", href: "/cafe-coworking" },
+  { label: "Kelas & Program", href: "/kelas-programme" },
+  { label: "Kolaborasi", href: "/kolaborasi" },
   { label: "Artikel", href: "/artikel" },
   { label: "Galeri", href: "/galeri" },
   { label: "Kontak", href: "/kontak" },
