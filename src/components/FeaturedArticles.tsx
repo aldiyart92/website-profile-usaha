@@ -38,6 +38,19 @@ export default function FeaturedArticles({ articles = [] }: FeaturedArticlesProp
 
   const currentHeadline = headlineArticles[activeSlide];
 
+  const formatDate = (date: string, month: "long" | "short") =>
+    date
+      ? new Intl.DateTimeFormat("id-ID", { day: "numeric", month, year: "numeric" }).format(new Date(date))
+      : "";
+
+  if (articles.length === 0) {
+    return (
+      <div className="rounded-3xl border border-dashed border-gray-200 bg-surface p-12 text-center text-text-secondary">
+        Belum ada artikel yang dipublikasikan.
+      </div>
+    );
+  }
+
   return (
     <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
       {/* SISI KIRI: Headline Slider (7 Cols on desktop) */}
@@ -56,13 +69,17 @@ export default function FeaturedArticles({ articles = [] }: FeaturedArticlesProp
                 idx === activeSlide ? "opacity-100 z-10" : "opacity-0 z-0 pointer-events-none"
               }`}
             >
-              <Image
-                src={article.thumbnail}
-                alt={article.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-105"
-                priority={idx === 0}
-              />
+              {article.thumbnail ? (
+                <Image
+                  src={article.thumbnail}
+                  alt={article.title}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  priority={idx === 0}
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light" />
+              )}
               {/* Gradient Overlay for text readability */}
               <div className="absolute inset-0 bg-gradient-to-t from-primary-dark via-primary-dark/60 to-black/30" />
             </div>
@@ -101,16 +118,21 @@ export default function FeaturedArticles({ articles = [] }: FeaturedArticlesProp
 
             {/* Bottom Details */}
             <div className="space-y-4">
-              <div className="flex items-center gap-3 text-xs text-text-on-dark/80">
-                <span>Oleh {currentHeadline?.author}</span>
-                <span>•</span>
+              <div className="flex flex-wrap items-center gap-3 text-xs text-text-on-dark/80">
+                {currentHeadline?.category && (
+                  <>
+                    <span className="font-semibold text-accent">{currentHeadline.category}</span>
+                    <span>•</span>
+                  </>
+                )}
+                {currentHeadline?.author && (
+                  <>
+                    <span>Oleh {currentHeadline.author}</span>
+                    <span>•</span>
+                  </>
+                )}
                 <time dateTime={currentHeadline?.date}>
-                  {currentHeadline &&
-                    new Intl.DateTimeFormat("id-ID", {
-                      day: "numeric",
-                      month: "long",
-                      year: "numeric",
-                    }).format(new Date(currentHeadline.date))}
+                  {currentHeadline && formatDate(currentHeadline.date, "long")}
                 </time>
               </div>
 
@@ -167,12 +189,20 @@ export default function FeaturedArticles({ articles = [] }: FeaturedArticlesProp
           >
             {/* Small Thumbnail */}
             <div className="relative w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden shrink-0 border border-gray-100">
-              <Image
-                src={article.thumbnail}
-                alt={article.title}
-                fill
-                className="object-cover transition-transform duration-500 group-hover:scale-110"
-              />
+              {article.thumbnail ? (
+                <Image
+                  src={article.thumbnail}
+                  alt={article.title}
+                  fill
+                  className="object-cover transition-transform duration-500 group-hover:scale-110"
+                />
+              ) : (
+                <div className="absolute inset-0 bg-gradient-to-br from-primary-dark via-primary to-primary-light flex items-center justify-center text-white/70">
+                  <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z" />
+                  </svg>
+                </div>
+              )}
               <span className="absolute bottom-1.5 left-1.5 bg-primary-dark/80 backdrop-blur text-white text-[10px] px-1.5 py-0.5 rounded font-medium">
                 #{idx + 1}
               </span>
@@ -181,14 +211,10 @@ export default function FeaturedArticles({ articles = [] }: FeaturedArticlesProp
             {/* Article Text Content */}
             <div className="flex flex-col justify-between flex-1 min-w-0">
               <div className="flex items-center gap-2 text-[11px] text-text-secondary mb-1">
-                <span className="font-medium text-primary">Artikel Populer</span>
+                <span className="font-medium text-primary truncate">{article.category || "Artikel"}</span>
                 <span>•</span>
-                <time dateTime={article.date}>
-                  {new Intl.DateTimeFormat("id-ID", {
-                    day: "numeric",
-                    month: "short",
-                    year: "numeric",
-                  }).format(new Date(article.date))}
+                <time dateTime={article.date} className="shrink-0">
+                  {formatDate(article.date, "short")}
                 </time>
               </div>
 
