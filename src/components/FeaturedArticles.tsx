@@ -74,6 +74,7 @@ export default function FeaturedArticles({ articles = [] }: FeaturedArticlesProp
                   src={article.thumbnail}
                   alt={article.title}
                   fill
+                  sizes="(max-width: 1024px) 100vw, 60vw"
                   className="object-cover transition-transform duration-700 group-hover:scale-105"
                   priority={idx === 0}
                 />
@@ -194,6 +195,7 @@ export default function FeaturedArticles({ articles = [] }: FeaturedArticlesProp
                   src={article.thumbnail}
                   alt={article.title}
                   fill
+                  sizes="(max-width: 640px) 96px, 112px"
                   className="object-cover transition-transform duration-500 group-hover:scale-110"
                 />
               ) : (

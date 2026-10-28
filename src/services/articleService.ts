@@ -1,4 +1,5 @@
 import { Article } from "@/data/content";
+import { cacheLife } from "next/cache";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8000/api";
 
@@ -43,11 +44,17 @@ export function mapApiToArticle(item: ApiArticleItem): Article {
 
 /**
  * Fetch articles from http://localhost:8000/api/articles
+ * Cached for 1 minute (revalidated automatically every 60s).
  */
 export async function getArticlesFromApi(): Promise<Article[]> {
   "use cache";
+  cacheLife("minutes");
   try {
-    const res = await fetch(`${API_BASE_URL}/articles`);
+    const res = await fetch(`${API_BASE_URL}/articles`, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
 
     if (!res.ok) {
       console.warn(`[articleService] API responded with status ${res.status}`);
@@ -74,11 +81,17 @@ export async function getBlogArticles(): Promise<Article[]> {
 
 /**
  * Get article detail by slug from the API. Returns null when not found.
+ * Cached for 1 minute (revalidated automatically every 60s).
  */
 export async function getArticleBySlug(slug: string): Promise<Article | null> {
   "use cache";
+  cacheLife("minutes");
   try {
-    const res = await fetch(`${API_BASE_URL}/articles/${encodeURIComponent(slug)}`);
+    const res = await fetch(`${API_BASE_URL}/articles/${encodeURIComponent(slug)}`, {
+      headers: {
+        Accept: "application/json",
+      },
+    });
 
     if (res.ok) {
       const json = await res.json();
